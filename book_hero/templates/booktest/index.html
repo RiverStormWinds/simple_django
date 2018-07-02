@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<a href="{% url 'user:index' %}">链接</a>
+<h3>图书列表</h3>
+<ul>
+    {% for book in booklist %}
+        {% if forloop.counter|divisibleby:'2' %}
+        <li style="background-color: lightblue;">
+            {% else %}
+        <li style="background-color: lightgreen;">
+        {% endif %}
+            <a href="{{ book.id }}">
+                {{ book.btitle }}
+                {#                {{ book.hero_name }}#}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

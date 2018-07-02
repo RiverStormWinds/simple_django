@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详细页</title>
+</head>
+<body>
+<a href="{% url 'user:detail' 2 %} }">链接</a>
+<h3>{{ book.btitle }}</h3>
+<ul>
+    {% for hero in book.heroinfo_set.all %}
+        <li>
+            {{ hero.hname }} -- {{ hero.hcontent }}
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
+

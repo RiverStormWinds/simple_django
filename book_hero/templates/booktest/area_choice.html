@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static from staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>省市区选择</title>
+</head>
+<body>
+
+<select id="prov" onchange="chg(this.value)">
+    <option id="prov_value" value="">省份</option>
+</select>
+
+<select id="city" onchange="chg_area(this.value)">
+    <option value="">城市</option>
+</select>
+
+<select id="area">
+    <option value="">区县</option>
+</select>
+
+<script src='{% static "js/jquery.min.js" %}'></script>
+<script>
+
+    $(function () {
+        $.get('/user/prov_ajax', function (data) {
+            for (var i = 1; i < 35; i++) {
+                prov = $("#prov");
+                prov.append('<option value=' + data[i][0] + '>' + data[i][1] + '</option>');
+                {#console.log(data[i][0])#}
+            }
+        });
+    });
+
+    function chg(data) {
+        console.log(data);
+        {#console.log('-----------------');#}
+        $.get('/user/city_ajax/'+ data, function (datas) {
+            city = $("#city");
+            city.empty().append('<option value="">城市</option>');
+
+            for (var dat in datas){
+                console.log(dat);
+                city.append('<option value=' + datas[dat][0] + '>' + datas[dat][1] + '</option>');
+        }
+        });
+    }
+
+    function chg_area(data) {
+        console.log(data);
+        {#console.log('-----------------');#}
+        $.get('/user/area_ajax/' + data, function (datas) {
+            area = $("#area");
+            area.empty().append('<option value="">区县</option>');
+
+            for (var dat in datas){
+                console.log(dat);
+                area.append('<option value=' + datas[dat][0] + '>' + datas[dat][1] + '</option>');
+        }
+        });
+    }
+
+</script>
+</body>
+</html>
+

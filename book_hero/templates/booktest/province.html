@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省份分页器</title>
+</head>
+<body>
+
+<ul>
+
+    {% for area in list %}
+        <li>{{ area.id }} -- {{ area.province }}</li>
+    {% endfor %}
+</ul>
+
+{% for pindex in plist %}
+    {% if p_index == pindex %}
+    {{ p_index }}&nbsp;&nbsp;
+        {% else %}
+        <a href="/user/pag{{ pindex }}/">{{ pindex }}</a>&nbsp;&nbsp;
+    {% endif %}
+{% endfor %}
+</body>
+</html>
+

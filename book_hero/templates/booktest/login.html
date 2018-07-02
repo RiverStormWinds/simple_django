@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static from staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+</head>
+<body>
+
+<form method="post" action="login_handle" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="uname" title="口令">用户<br>
+    <input type="text" name="verifycode" typeof="验证">验证<br>
+    <img id="verifycode" src="/user/verifycode" alt="CheckCode"><br>
+    <span id="verifycondeChange" style="font-size: 12px">看不清，换一个</span><br>
+    <input type="file" name="pic"><br>
+    <button type="submit">提交</button>
+</form>
+
+{#<script src='../../static/jquery.min.js'></script>#}
+<script src='{% static "js/jquery.min.js" %}'></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('#verifycondeChange').click(function () {
+            $('#verifycode').attr('src', $('#verifycode').attr('src')+1)
+        })
+    })
+</script>
+</body>
+</html>
+

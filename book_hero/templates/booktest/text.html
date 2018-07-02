@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算给定两个输入值和-dom操作</title>
+
+</head>
+<body>
+    第一个数: <input id="num1" type="number" name="num1" value=""> <br/>
+    第一个数: <input id="num2" type="number" name="num2" value=""> <br/>
+    <button onclick="sum()">计算和</button><br/>
+    <span id="result">111</span>
+
+    <script>
+        //自定义函数 实现指定id标记对象的查找
+        function  sum(){
+            let temp=document.getElementById('num1').value;
+            let temp2=document.getElementById('num2').value;
+            console.log(temp,temp2);
+            document.getElementById('result').innerText=temp+temp2;
+        }
+    </script>
+</body>
+</html>

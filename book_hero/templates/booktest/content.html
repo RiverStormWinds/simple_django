@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详细页</title>
+</head>
+<body>
+<ul>
+    姓名<li>{{ hero.hname }}</li>
+    <hr>
+    {% autoescape off %}
+    {{ hero.hcontent }}
+    {% endautoescape %}
+</ul>
+
+</body>
+</html>
+
+
+

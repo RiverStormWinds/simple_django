@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区县列表</title>
+</head>
+<body>
+
+<h3>{{ areas.city }}</h3>
+<a href="{% url 'user:area' 22 %}">链接</a>
+<ul>
+    {% for area in areas.areainfo_set.all %}
+        <li>
+            <a href="{{ area.id }}">
+                {{ area.area }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
